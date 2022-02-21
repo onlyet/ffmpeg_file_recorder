@@ -3,6 +3,8 @@
 #include <assert.h>
 #include <shlobj.h>
 
+#include <intrin.h> // for __cpuid
+
 typedef NTSTATUS(WINAPI *pRtlGetVersion)(
     _Out_ PRTL_OSVERSIONINFOW lpVersionInformation
     );

@@ -8,6 +8,9 @@
 #include "afxdialogex.h"
 #include <MMSystem.h>
 #include "../screen_audio_recorder/IScreenAudioRecord_C.h"
+
+#include <MyDll.h>
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -98,6 +101,9 @@ END_MESSAGE_MAP()
 
 BOOL CGdiGrabberTestDlg::OnInitDialog()
 {
+	// app项目只有使用了动态库的导出函数，生成的exe才会依赖该动态库
+	int tt = TEST_Export(1, 2);
+
 	CDialogEx::OnInitDialog();
 
 	// 将“关于...”菜单项添加到系统菜单中。

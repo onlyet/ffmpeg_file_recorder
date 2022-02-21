@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GdiGrabberTest", "GdiGrabberTest\GdiGrabberTest.vcxproj", "{C258013A-FC5D-4CD4-8E11-4EF55D4DE6A6}"
 EndProject
@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaFileRecorderTest", "Me
 	ProjectSection(ProjectDependencies) = postProject
 		{B7A5D234-8926-419A-8C1C-1D2DC948F56B} = {B7A5D234-8926-419A-8C1C-1D2DC948F56B}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dll1", "Dll1\Dll1.vcxproj", "{78C392CF-0862-4B2B-BC6B-37D96627086F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,8 +62,25 @@ Global
 		{08367088-4113-436F-A46C-7A6F01EDEE1F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{08367088-4113-436F-A46C-7A6F01EDEE1F}.Release|Win32.ActiveCfg = Release|Any CPU
 		{08367088-4113-436F-A46C-7A6F01EDEE1F}.Release|x64.ActiveCfg = Release|Any CPU
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|Win32.Build.0 = Debug|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|x64.ActiveCfg = Debug|x64
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Debug|x64.Build.0 = Debug|x64
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|Any CPU.ActiveCfg = Release|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|Win32.ActiveCfg = Release|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|Win32.Build.0 = Release|Win32
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|x64.ActiveCfg = Release|x64
+		{78C392CF-0862-4B2B-BC6B-37D96627086F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8004AEF4-76AB-4A7D-BF69-8D8F7B58DCBF}
 	EndGlobalSection
 EndGlobal

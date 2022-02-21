@@ -14,19 +14,20 @@
     <ProjectGuid>{C258013A-FC5D-4CD4-8E11-4EF55D4DE6A6}</ProjectGuid>
     <RootNamespace>GdiGrabberTest</RootNamespace>
     <Keyword>MFCProj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v120_xp</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
@@ -43,7 +44,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(VC_IncludePath);;$(WindowsSdk_71A_IncludePath);</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSdk_71A_IncludePath);$(WindowsSDK_IncludePath);$(SolutionDir)Dll1</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -74,7 +75,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <PostBuildEvent>
-      <Command>copy $(TargetDir)..\..\screen_audio_recorder\ffmpeg\dll\ $(TargetDir)</Command>
+      <Command>copy $(TargetDir)..\screen_audio_recorder\ffmpeg\dll\ $(TargetDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -142,6 +143,9 @@
     <Image Include="res\GdiGrabberTest.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dll1\Dll1.vcxproj">
+      <Project>{78c392cf-0862-4b2b-bc6b-37d96627086f}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\screen_audio_recorder\screen_audio_recorder.vcxproj">
       <Project>{b7a5d234-8926-419a-8c1c-1d2dc948f56b}</Project>
     </ProjectReference>

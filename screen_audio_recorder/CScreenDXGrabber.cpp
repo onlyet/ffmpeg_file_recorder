@@ -4,6 +4,8 @@
 #include <MMSystem.h>
 #include "log.h"
 
+#include <functional>
+
 namespace MediaFileRecorder
 {
 	CScreenDXGrabber::CScreenDXGrabber()

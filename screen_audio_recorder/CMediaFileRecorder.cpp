@@ -4,6 +4,8 @@
 #include <MMSystem.h>
 #include "log.h"
 
+#include <functional>
+
 void av_log_cb(void* data, int level, const char* msg, va_list args)
 {
 	char log[1024] = { 0 };
