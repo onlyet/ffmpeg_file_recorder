@@ -83,7 +83,7 @@ namespace MediaFileRecorder
 		m_nDevIndex = nIndex;
 		return 0;
 	}
-
+	// 点击开始后调用
 	int CWASAudioCapture::StartCapture()
 	{
 		if (m_bCapturing)
@@ -91,14 +91,14 @@ namespace MediaFileRecorder
 			Error("CWASAudioCapture: Capture already started");
 			return -1;
 		}
-
+		// 初始化WAS相关对象
 		int ret = InitCapture();
 		if (ret != 0)
 		{
 			Error("CWASAudioCapture: InitCapture failed");
 			return -1;
 		}
-
+		// IAudioClient启动音频流
 		HRESULT res = m_pAudioClient->Start();
 		if (FAILED(res))
 		{
@@ -106,7 +106,7 @@ namespace MediaFileRecorder
 			UnInitCapture();
 			return -1;
 		}
-
+		// 创建音频采集线程
 		m_hCaptureThread = ::CreateThread(NULL, 0, &CWASAudioCapture::CaptureThread,
 			(LPVOID)this, 0, NULL);
 		

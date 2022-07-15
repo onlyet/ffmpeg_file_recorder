@@ -10,7 +10,7 @@ namespace MediaFileRecorder
 	{
 		IAudioCapture* pAudioCapture = NULL;
 		SystemInfo systemInfo;
-		if (systemInfo.windows_version() >= SystemInfo::WINDOWS_VISTA)
+		if (systemInfo.windows_version() >= SystemInfo::WINDOWS_VISTA) // VISTA之后的系统用WAS
 		{
 			pAudioCapture = new CWASAudioCapture(devType);
 		}

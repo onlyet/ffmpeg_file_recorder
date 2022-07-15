@@ -118,7 +118,8 @@ namespace MediaFileRecorder
 			ret |= PARAMETER_INVALID;
 			return ret;
 		}
-
+		
+		// 创建所有采集线程
 		StartCapture(ret);
 
 		if (m_pFileRecorder->Init(m_stRecordInfo) != 0)
@@ -128,7 +129,7 @@ namespace MediaFileRecorder
 			CleanUp();
 			return ret;
 		}
-		
+		// 设置开始时间，创建视频和音频的编码复用线程
 		if (m_pFileRecorder->Start() != 0)
 		{
 			Error("Start media file recorder failed");
@@ -241,7 +242,7 @@ namespace MediaFileRecorder
 		{
 			m_pScreenGrabber->SetGrabFrameRate(m_stRecordInfo.video_frame_rate);
 			m_pScreenGrabber->SetGrabRect(m_stRecordInfo.video_capture_rect);
-
+			// 创建视频采集线程
 			m_bVideoRecording = (m_pScreenGrabber->StartGrab() == 0);
 			if (!m_bVideoRecording)
 			{
