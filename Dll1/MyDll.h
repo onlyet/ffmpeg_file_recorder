@@ -9,7 +9,7 @@ class MyDll
 #define MYAPI __declspec(dllimport)
 #endif
 
-// 动态库项目只有导出了函数才会生成导出库（my.lib），否则只生成.dll
+// 动态库项目只有导出了函数才会生成导出库（my.lib），否则只生成my.dll
 extern "C"
 {
 	MYAPI int  TEST_Export(int a, int b);
