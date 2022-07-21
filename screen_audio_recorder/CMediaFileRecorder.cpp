@@ -51,7 +51,7 @@ namespace MediaFileRecorder
 			UnInit();
 		}
 	}
-
+	
 	int CMediaFileRecorder::Init(const RECORD_INFO& record_info)
 	{
 		if (m_bInited)
@@ -110,7 +110,6 @@ namespace MediaFileRecorder
 
 		return 0;
 	}
-
 
 	int CMediaFileRecorder::InitVideoRecord()
 	{
@@ -747,6 +746,7 @@ namespace MediaFileRecorder
 				}
 			}
 
+			int tt = swr_get_delay(m_pConvertCtx, m_stAudioInfo.sample_rate);
 			int dst_nb_samples = (int)av_rescale_rnd(
 				swr_get_delay(m_pConvertCtx, m_stAudioInfo.sample_rate) + nb_samples,
 				m_pCodecCtx->sample_rate, m_stAudioInfo.sample_rate, AV_ROUND_UP);
@@ -882,7 +882,7 @@ namespace MediaFileRecorder
 			UnInit();
 		}
 	}
-
+	// ´´½¨AVFrame
 	int CVideoRecord::Init(const AVCodecContext* pCodecCtx)
 	{
 		if (m_bInited)

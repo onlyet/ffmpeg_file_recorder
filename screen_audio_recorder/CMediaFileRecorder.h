@@ -19,7 +19,6 @@ extern "C"
 #pragma comment(lib, "avdevice.lib")
 #pragma comment(lib, "avfilter.lib")
 #pragma comment(lib, "swresample.lib")
-	//#pragma comment(lib, "avfilter.lib")
 	//#pragma comment(lib, "postproc.lib")
 	//#pragma comment(lib, "swresample.lib")
 #pragma comment(lib, "swscale.lib")
@@ -46,6 +45,7 @@ namespace MediaFileRecorder
 	public:
 		CMediaFileRecorder();
 		~CMediaFileRecorder();
+		// 打开输出，写头部
 		int Init(const RECORD_INFO& record_info) override;
 		int UnInit() override;
 		int Start() override;
@@ -55,6 +55,7 @@ namespace MediaFileRecorder
 		int FillSpeakerAudio(const void* audioSamples, int nb_samples, const AUDIO_INFO& audio_info) override;
 
 	private:
+		// 创建输出流，打开编码器
 		int InitVideoRecord();
 		void UnInitVideoRecord();
 		int InitAudioRecord();
@@ -68,6 +69,7 @@ namespace MediaFileRecorder
 		void VideoCleanUp();
 		void AudioCleanUp();
 
+		// 编码并复用
 		void EncodeAndWriteVideo();
 		void EncodeAndWriteAudio();
 
@@ -99,7 +101,7 @@ namespace MediaFileRecorder
 		std::thread m_WriteVideoThread;
 		std::thread m_WriteAudioThread;
 
-		CRITICAL_SECTION m_WriteFileSection;
+		CRITICAL_SECTION m_WriteFileSection; // 写视频文件线程和写音频文件线程会同时写
 
 		int m_nMainAudioStream;
 	};
@@ -141,9 +143,12 @@ namespace MediaFileRecorder
 	public:
 		CVideoRecord();
 		~CVideoRecord();
+		// 创建AVFrame
 		int Init(const AVCodecContext* pCodecCtx);
 		int UnInit();
+		// 写一帧到FIFO
 		int FillVideo(const void* video_data, const VIDEO_INFO& video_info, int64_t capture_time);
+		// 从FIFO读一帧VideoMQ
 		VIDEO_FRAME* GetOneFrame();
 	private:
 		int ResetConvertCtx();
