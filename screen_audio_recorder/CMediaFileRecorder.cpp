@@ -282,7 +282,7 @@ namespace MediaFileRecorder
 			AudioCleanUp();
 			return -1;
 		}
-
+		// avcodec_open2ºó»áÉèÖÃAVCodecContext::frame_size
 		int nAudioSize = av_samples_get_buffer_size(NULL, m_pAudioCodecCtx->channels,
 			m_pAudioCodecCtx->frame_size, m_pAudioCodecCtx->sample_fmt, 1);
 
@@ -663,14 +663,14 @@ namespace MediaFileRecorder
 		avcodec_fill_audio_frame(m_pFrame, m_pCodecCtx->channels,
 			m_pCodecCtx->sample_fmt, (const uint8_t*)m_pFrameBuffer, nSize, 1);
 
-		m_pFifoBuffer = av_audio_fifo_alloc(pCodecCtx->sample_fmt,
-			pCodecCtx->channels, 100 * m_pCodecCtx->frame_size);
+		m_pFifoBuffer = av_audio_fifo_alloc(m_pCodecCtx->sample_fmt,
+			m_pCodecCtx->channels, 100 * m_pCodecCtx->frame_size);
 		if (!m_pFifoBuffer)
 		{
 			CleanUp();
 			return -1;
 		}
-
+		//av_samples_fill_arrays
 		InitializeCriticalSection(&m_BufferSection);
 
 		m_bInited = true;

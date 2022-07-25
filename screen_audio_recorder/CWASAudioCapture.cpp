@@ -443,6 +443,7 @@ namespace MediaFileRecorder
 		UINT    captureSize = 0;
 		while (true)
 		{
+			// 返回下一个数据包的音频帧数（即FFmpeg中的样本数nb_sample）
 			res = m_pCaptureClient->GetNextPacketSize(&captureSize);
 			if (FAILED(res))
 			{
@@ -453,7 +454,10 @@ namespace MediaFileRecorder
 			}
 			if (!captureSize)
 				break;
-
+			/**
+			 * 获取下一个数据包的指针和大小
+			 * frames即上面的captureSize
+			*/
 			res = m_pCaptureClient->GetBuffer(&buffer, &frames, &flags, &pos, &ts);
 			if (FAILED(res))
 			{
