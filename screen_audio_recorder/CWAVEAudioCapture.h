@@ -13,8 +13,8 @@
 namespace MediaFileRecorder
 {
 	const uint32_t N_REC_BITS_PER_SAMPLE = 16;
-	const uint32_t N_REC_SAMPLES_PER_SEC = 48000;
-	const uint32_t N_REC_CHANNELS = 1;  // default is mono recording
+	const uint32_t N_REC_SAMPLES_PER_SEC = /*48000*/44100;
+	const uint32_t N_REC_CHANNELS = /*1*/2;  // default is mono recording
 	// NOTE - CPU load will not be correct for other sizes than 10ms
 	const uint32_t REC_BUF_SIZE_IN_SAMPLES = (N_REC_SAMPLES_PER_SEC / 100);
 	enum { N_BUFFERS_IN = 200 };

@@ -212,9 +212,9 @@ void CGdiGrabberTestDlg::OnBnClickedButtonStart()
 		record_info.video_dst_height = 1080;
 		record_info.video_frame_rate= CAPTURE_FRAME_RATE;
 		record_info.quality = MediaFileRecorder::NORMAL;
-		record_info.is_record_speaker = true;
+		//record_info.is_record_speaker = true;
 		record_info.is_record_video = true;
-		//record_info.is_record_mic = true; // 测试时不录制麦克风
+		record_info.is_record_mic = true; // 测试时不录制麦克风
 
 		/*int ret = m_pRecorder->SetRecordInfo(record_info);
 		ret = m_pRecorder->StartRecord();*/
